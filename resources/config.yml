@@ -10,7 +10,7 @@
 #  You can use {player} to get the player's name.
 #  You can use {line} to make the message go to a new line. (NOTE: does not work with title + subtitle options)
 #   Default Config:
-#      title: "&aWelcome to the Server!"
+#      title: "&aWelcome to the Server This Can Be Editied In Config.yml"
 #      subtitle: "&bThis is a great server!"
 #      no-permission: "&cYou do not have permission to use this command"
 #      guardian-curse: "enabled"
