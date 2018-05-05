@@ -32,10 +32,10 @@ use pocketmine\event\player\PlayerJoinEvent;
 class BlazinJoin extends PluginBase implements Listener{
 
     const VERSION = "v1.1.3";
-    const PREFIX = TextFormat::AQUA . "BlazinJoin" . TextFormat::GOLD . " > ";
+    const PREFIX = TextFormat::AQUA . "Join" . TextFormat::GOLD . " > ";
 
     public function onEnable() : void{
-        $this->getLogger()->info("BlazinJoin " . self::VERSION . " by iiFlamiinBlaze enabled");
+        $this->getLogger()->info("BlazinJoin " . self::VERSION . "by iiFlamiinBlaze enabled");
         @mkdir($this->getDataFolder());
         $this->saveDefaultConfig();
     }
@@ -47,11 +47,11 @@ class BlazinJoin extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
         if($command->getName() === "blazinjoin"){
             if(empty($args[0])){
-                $sender->sendMessage(self::PREFIX . TextFormat::GRAY . "Usage: /blazinjoin <info | set> <title | subtitle | message | curse> <message>");
+                $sender->sendMessage(self::PREFIX . TextFormat::GRAY . "Usage: /join <info | set> <title | subtitle | message | curse> <message>");
                 return false;
             }
             if(!$sender instanceof Player){
-                $sender->sendMessage(self::PREFIX . TextFormat::RED . "Use this command in-game");
+                $sender->sendMessage(self::PREFIX . TextFormat::RED . "Use This Command In-Game");
                 return false;
             }
             if(!$sender->hasPermission("blazinjoin.command")){
@@ -78,9 +78,9 @@ class BlazinJoin extends PluginBase implements Listener{
                                 $config = $this->getConfig();
                                 $config->set("title", $args[2]);
                                 $config->save();
-                                $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You have now set a new title in BlazinJoin config");
+                                $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You Have Now Set A New Title In BlazinJoin Config");
                             }else{
-                                $sender->sendMessage(self::PREFIX . TextFormat::RED . "You have to set the title to a string.");
+                                $sender->sendMessage(self::PREFIX . TextFormat::RED . "You Have To Set The Title To A String.");
                                 return false;
                             }
                             break;
@@ -89,9 +89,9 @@ class BlazinJoin extends PluginBase implements Listener{
                                 $config = $this->getConfig();
                                 $config->set("subtitle", $args[2]);
                                 $config->save();
-                                $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You have now set a new subtitle in BlazinJoin config");
+                                $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You Have Now Set A New Subtitle In BlazinJoin Config");
                             }else{
-                                $sender->sendMessage(self::PREFIX . TextFormat::RED . "You have to set the subtitle to a string.");
+                                $sender->sendMessage(self::PREFIX . TextFormat::RED . "You Have To Set The Subtitle To A String.");
                                 return false;
                             }
                             break;
@@ -100,9 +100,9 @@ class BlazinJoin extends PluginBase implements Listener{
                                 $config = $this->getConfig();
                                 $config->set("message", $args[2]);
                                 $config->save();
-                                $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You have now set a new message in BlazinJoin config");
+                                $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You Have Now Set A New Message In BlazinJoin Config");
                             }else{
-                                $sender->sendMessage(self::PREFIX . TextFormat::RED . "You have to set the message to a string.");
+                                $sender->sendMessage(self::PREFIX . TextFormat::RED . "You Have To Set The Message To A String.");
                                 return false;
                             }
                             break;
@@ -112,16 +112,16 @@ class BlazinJoin extends PluginBase implements Listener{
                                     $config = $this->getConfig();
                                     $config->set("guardian-curse", "enabled");
                                     $config->save();
-                                    $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You have now set the guardian curse to enabled in BlazinJoin config");
+                                    $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You Have Now Set The Guardian Curse To Enabled In BlazinJoin Config");
                                     break;
                                 case "disabled":
                                     $config = $this->getConfig();
-                                    $config->set("guardian-curse", "disabled");
+                                    $config->set("guardian-curse", "enabled");
                                     $config->save();
-                                    $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You have now set the guardian curse to disabled in BlazinJoin config");
+                                    $sender->sendMessage(self::PREFIX . TextFormat::GREEN . "You Have Now Set The Guardian Curse To Disabled In BlazinJoin Config");
                                     break;
                                 default:
-                                    $sender->sendMessage(self::PREFIX . TextFormat::RED . "You must set the curse to enabled or disabled!");
+                                    $sender->sendMessage(self::PREFIX . TextFormat::RED . "You Must Set The Curse To Enabled Or Disabled!");
                                     break;
                             }
                             break;
